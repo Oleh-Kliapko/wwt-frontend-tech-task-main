@@ -15,7 +15,7 @@ tmp
 coverage
 
 # Editor directories and files
-.vs/ 
+.vs/
 .vs/*
 .vscode/*
 !.vscode/extensions.json
@@ -27,3 +27,4 @@ coverage
 *.sln
 *.sw?
 
+.claude

@@ -1,48 +1,15 @@
 import { useTranslation } from 'react-i18next'
 
-import { CloseIcon } from '@/image'
-import type { FilterItem } from '@/shared/api/types/Filter'
-
 import { useFilterData } from '../hooks/useFilterData'
 import { useFilterStore } from '../store/useFilterStore'
 import { ConfirmationDialog } from './ConfirmationDialog'
-
-const FilterGroup = ({ item }: { item: FilterItem }) => {
-	const { pendingFilters, toggleOption } = useFilterStore()
-
-	const selectedIds =
-		pendingFilters.find(entry => entry.id === item.id)?.optionsIds ?? []
-
-	return (
-		<section>
-			<h2 className="font-semibold text-sm mb-4">{item.name}</h2>
-			<ul className="grid grid-cols-3 gap-x-6 gap-y-3">
-				{item.options.map(option => (
-					<li key={option.id}>
-						<label className="flex items-center gap-2 cursor-pointer text-sm">
-							<input
-								type="checkbox"
-								className="w-4 h-4 shrink-0 accent-primary cursor-pointer"
-								checked={selectedIds.includes(option.id)}
-								onChange={() => toggleOption(item.id, option.id)}
-							/>
-							{option.name}
-						</label>
-					</li>
-				))}
-			</ul>
-		</section>
-	)
-}
+import { FilterFooter } from './FilterFooter'
+import { FilterGroup } from './FilterGroup'
+import { FilterHeader } from './FilterHeader'
 
 export const FilterModal = () => {
 	const { t } = useTranslation('filter')
-	const {
-		closeFilterModal,
-		openConfirmation,
-		clearAllFilters,
-		isConfirmationOpen
-	} = useFilterStore()
+	const { closeFilterModal, isConfirmationOpen } = useFilterStore()
 	const { data: filters, isLoading } = useFilterData()
 
 	return (
@@ -55,20 +22,10 @@ export const FilterModal = () => {
 					className="relative bg-white rounded-2xl w-full max-w-[660px] max-h-[90vh] flex flex-col mx-4"
 					onClick={e => e.stopPropagation()}
 				>
-					{/* Header */}
-					<div className="flex items-center justify-center px-8 pt-6 pb-4 relative shrink-0">
-						<h1 className="text-base font-semibold">{t('title')}</h1>
-						<button
-							onClick={closeFilterModal}
-							className="absolute right-6 text-gray-400 hover:text-gray-600 transition-colors"
-							aria-label={t('title')}
-						>
-							<CloseIcon />
-						</button>
-					</div>
+					<FilterHeader />
+
 					<hr className="border-gray-200 shrink-0" />
 
-					{/* Body */}
 					<div className="overflow-y-auto flex-1 px-8">
 						{isLoading ? (
 							<p className="py-10 text-center text-sm text-gray-400">
@@ -88,22 +45,8 @@ export const FilterModal = () => {
 						)}
 					</div>
 
-					{/* Footer */}
 					<hr className="border-gray-200 shrink-0" />
-					<div className="relative flex items-center justify-center px-8 py-4 shrink-0">
-						<button
-							onClick={openConfirmation}
-							className="bg-primary hover:bg-primary-hover text-white rounded px-12 py-2.5 text-sm font-medium transition-colors"
-						>
-							{t('apply')}
-						</button>
-						<button
-							onClick={clearAllFilters}
-							className="absolute right-8 text-blue-500 hover:text-blue-700 text-sm transition-colors"
-						>
-							{t('clearAll')}
-						</button>
-					</div>
+					<FilterFooter />
 				</div>
 			</div>
 

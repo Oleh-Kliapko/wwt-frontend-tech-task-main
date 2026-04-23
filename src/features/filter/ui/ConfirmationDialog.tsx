@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-import { CloseIcon } from '@/image/svg'
+import { Button, CloseButton } from '@/features/ui'
 
 import { useFilterStore } from '../store/useFilterStore'
 
@@ -14,34 +14,32 @@ export const ConfirmationDialog = () => {
 			onClick={closeConfirmation}
 		>
 			<div
-				className="relative bg-white rounded-2xl w-full max-w-md mx-4 px-10 py-10"
+				className="relative bg-white rounded-2xl w-full max-w-md mx-4"
 				onClick={e => e.stopPropagation()}
 			>
-				<button
-					onClick={closeConfirmation}
-					className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
-					aria-label={t('confirmation.title')}
-				>
-					<CloseIcon />
-				</button>
+				<div className="flex items-center justify-center px-8 pt-6 pb-6 relative shrink-0">
+					<p className="text-base font-medium">{t('confirmation.title')}</p>
+					<CloseButton
+						onClick={closeConfirmation}
+						className="absolute top-6 right-6"
+						ariaLabel={t('confirmation.title')}
+					/>
+				</div>
 
-				<p className="text-center text-base font-medium mb-10">
-					{t('confirmation.title')}
-				</p>
-
-				<div className="flex gap-4 justify-center">
-					<button
+				<div className="flex gap-4 justify-center px-8 pb-8 pt-6">
+					<Button
 						onClick={discardChanges}
-						className="flex-1 max-w-[160px] border border-gray-300 rounded px-4 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors"
+						className="flex-1 max-w-[160px]"
+						variant="secondary"
 					>
 						{t('confirmation.useOld')}
-					</button>
-					<button
+					</Button>
+					<Button
 						onClick={applyFilters}
-						className="flex-1 max-w-[160px] bg-primary hover:bg-primary-hover text-white rounded px-4 py-2.5 text-sm font-medium transition-colors"
+						className="flex-1 max-w-[160px]"
 					>
 						{t('confirmation.applyNew')}
-					</button>
+					</Button>
 				</div>
 			</div>
 		</div>

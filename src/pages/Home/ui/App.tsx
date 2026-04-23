@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { FilterModal, useFilterStore } from '@/features/filter'
+import { Button } from '@/features/ui'
 import { LanguageSwitcher } from '@/shared/i18n'
 
 export const App = () => {
@@ -17,12 +18,12 @@ export const App = () => {
 			{/* eslint-disable-next-line i18next/no-literal-string */}
 			<h1 className="text-4xl font-semibold text-gray-700">WinWinTravel</h1>
 
-			<button
+			<Button
 				onClick={openFilterModal}
-				className="bg-primary hover:bg-primary-hover text-white rounded px-8 py-3 font-medium transition-colors"
+				className="px-8 py-3"
 			>
 				{t('openFilter')}
-			</button>
+			</Button>
 
 			<section className="w-full max-w-2xl">
 				<h2 className="text-sm font-semibold text-gray-500 mb-2">
