@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-import { Button, CloseButton } from '@/features/ui'
+import { Button, CloseButton, Title } from '@/features/ui'
 
 import { useFilterStore } from '../store/useFilterStore'
 
@@ -10,33 +10,33 @@ export const ConfirmationDialog = () => {
 
 	return (
 		<div
-			className="fixed inset-0 z-60 flex items-center justify-center bg-black/30"
+			className="fixed inset-0 z-60 flex items-start justify-center bg-black/30 px-4 sm:px-10 lg:px-20 pt-4 sm:pt-10 lg:pt-[200px]"
 			onClick={closeConfirmation}
 		>
 			<div
-				className="relative bg-white rounded-2xl w-full max-w-md mx-4"
+				className="relative bg-white rounded-2xl w-full p-8"
 				onClick={e => e.stopPropagation()}
 			>
-				<div className="flex items-center justify-center px-8 pt-6 pb-6 relative shrink-0">
-					<p className="text-base font-medium">{t('confirmation.title')}</p>
+				<div className="flex items-center pb-[120px] shrink-0 leading-none">
+					<Title>{t('confirmation.title')}</Title>
 					<CloseButton
 						onClick={closeConfirmation}
-						className="absolute top-6 right-6"
+						className="ml-auto"
 						ariaLabel={t('confirmation.title')}
 					/>
 				</div>
 
-				<div className="flex gap-4 justify-center px-8 pb-8 pt-6">
+				<div className="flex gap-4 justify-center">
 					<Button
 						onClick={discardChanges}
-						className="flex-1 max-w-[160px]"
+						className="flex-1 max-w-[280px]"
 						variant="secondary"
 					>
 						{t('confirmation.useOld')}
 					</Button>
 					<Button
 						onClick={applyFilters}
-						className="flex-1 max-w-[160px]"
+						className="flex-1 max-w-[280px]"
 					>
 						{t('confirmation.applyNew')}
 					</Button>

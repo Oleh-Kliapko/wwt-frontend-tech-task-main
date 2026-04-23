@@ -9,10 +9,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
 	primary:
-		'bg-primary hover:bg-primary-hover text-white rounded px-4 py-2.5 text-sm font-medium transition-colors',
+		'bg-primary hover:bg-primary-hover text-white rounded-2xl px-18 py-6 text-base font-semibold transition-colors cursor-pointer leading-none',
 	secondary:
-		'border border-gray-300 rounded px-4 py-2.5 text-sm font-medium hover:bg-gray-50 transition-colors',
-	link: 'text-blue-500 hover:text-blue-700 text-sm transition-colors'
+		'border border-gray-300 rounded-2xl px-18 py-6 text-base font-semibold hover:bg-gray-50 transition-colors cursor-pointer leading-none',
+	link: 'text-blue-500 hover:text-blue-700 text-base font-medium transition-colors cursor-pointer leading-none'
 }
 
 export const Button = ({

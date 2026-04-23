@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
-import { Button } from '../../ui'
+import { Button } from '@/features/ui'
+
 import { useFilterStore } from '../store/useFilterStore'
 
 export const FilterFooter = () => {

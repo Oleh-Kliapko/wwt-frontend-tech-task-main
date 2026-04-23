@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 
-import { CloseButton } from '@/features/ui'
+import { CloseButton, Title } from '@/features/ui'
 
 import { useFilterStore } from '../store/useFilterStore'
 
@@ -9,11 +9,11 @@ export const FilterHeader = () => {
 	const { closeFilterModal } = useFilterStore()
 
 	return (
-		<div className="flex items-center justify-center px-8 pt-6 pb-4 relative shrink-0">
-			<h1 className="text-base font-semibold">{t('title')}</h1>
+		<div className="flex items-center px-8 pt-10 pb-4 shrink-0">
+			<Title>{t('title')}</Title>
 			<CloseButton
 				onClick={closeFilterModal}
-				className="absolute top-6 right-6"
+				className="ml-auto"
 				ariaLabel={t('title')}
 			/>
 		</div>

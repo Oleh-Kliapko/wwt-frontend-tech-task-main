@@ -15,28 +15,26 @@ export const FilterModal = () => {
 	return (
 		<>
 			<div
-				className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+				className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4 sm:p-10 lg:p-20"
 				onClick={closeFilterModal}
 			>
 				<div
-					className="relative bg-white rounded-2xl w-full max-w-[660px] max-h-[90vh] flex flex-col mx-4"
+					className="relative bg-white rounded-2xl w-full max-h-[90vh] flex flex-col"
 					onClick={e => e.stopPropagation()}
 				>
 					<FilterHeader />
 
-					<hr className="border-gray-200 shrink-0" />
-
-					<div className="overflow-y-auto flex-1 px-8">
+					<div className="overflow-y-auto flex-1">
 						{isLoading ? (
-							<p className="py-10 text-center text-sm text-gray-400">
+							<p className="py-10 px-8 text-center text-sm text-gray-400">
 								{t('loading')}
 							</p>
 						) : (
-							<div className="divide-y divide-gray-200">
-								{filters?.map(item => (
+							<div className="divide-y divide-gray-200 px-8">
+								{filters?.map((item, idx) => (
 									<div
 										key={item.id}
-										className="py-6"
+										className={`py-6  border-gray-200 ${idx === 0 ? 'border-t border-b' : 'border-b'}`}
 									>
 										<FilterGroup item={item} />
 									</div>
@@ -45,7 +43,6 @@ export const FilterModal = () => {
 						)}
 					</div>
 
-					<hr className="border-gray-200 shrink-0" />
 					<FilterFooter />
 				</div>
 			</div>
