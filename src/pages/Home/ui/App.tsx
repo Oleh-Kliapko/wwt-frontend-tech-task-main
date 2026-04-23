@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
 import { FilterModal, useFilterStore } from '@/features/filter'
+import { LanguageSwitcher } from '@/shared/i18n'
 
 export const App = () => {
 	const { t } = useTranslation('filter')
@@ -9,6 +10,10 @@ export const App = () => {
 
 	return (
 		<main className="min-h-dvh flex flex-col items-center justify-center gap-8 p-8">
+			<div className="absolute top-4 right-4">
+				<LanguageSwitcher />
+			</div>
+
 			{/* eslint-disable-next-line i18next/no-literal-string */}
 			<h1 className="text-4xl font-semibold text-gray-700">WinWinTravel</h1>
 
