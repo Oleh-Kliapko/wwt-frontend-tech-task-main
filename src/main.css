@@ -1,2 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+
+@theme {
+	--color-primary: #e07832;
+	--color-primary-hover: #c96920;
+}

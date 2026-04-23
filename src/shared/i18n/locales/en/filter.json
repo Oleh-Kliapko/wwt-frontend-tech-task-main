@@ -1,1 +1,14 @@
-{}
+{
+	"title": "Filter",
+	"apply": "Apply",
+	"clearAll": "Clear all parameters",
+	"openFilter": "Open Filter",
+	"appliedFilters": "Applied Filters (JSON)",
+	"noFilters": "No filters applied",
+	"loading": "Loading…",
+	"confirmation": {
+		"title": "Do you want to apply new filter",
+		"useOld": "Use old filter",
+		"applyNew": "Apply new filter"
+	}
+}
