@@ -1,93 +1,65 @@
-# WinWinTravel
+# WinWinTravel Filter Modal
 
-## Task
+Interactive filter modal component for a travel booking application built with React, TypeScript, and Tailwind CSS.
 
-### What needs to be done
+## Overview
 
-The API provides filter data located in the file `filterData.json`
+This project implements a sophisticated filter system that allows users to refine travel search results based on multiple criteria including meal options, room facilities, bed types, and amenities. The system features real-time state management, confirmation dialogs for changes, and a fully responsive design that adapts seamlessly across mobile, tablet, and desktop viewports.
 
-Based on this data, create a filter modal window — [Figma design](https://www.figma.com/file/cnBVURUTntc8peGEfKexoY/WWT-Test-task?type=design&node-id=0%3A1&mode=design&t=GZ0EY5BJ6KB7iy02-1)
+## Key Features
 
-The design should closely follow the layout. If indentations differ slightly in the layout — make them consistent across the modal
+- **Interactive Filter Modal** — Multi-category filter selection with smooth UX
+- **Confirmation Dialog** — Prevents accidental filter changes with a confirmation step
+- **Responsive Design** — Adaptive spacing (16px mobile, 40px tablet, 80px desktop)
+- **State Management** — Zustand for global filter state, including previous filter preservation
+- **Internationalization** — Support for multiple languages (English/Ukrainian)
+- **Semantic HTML** — Accessible component structure with proper ARIA labels
+- **Design System Alignment** — Consistent colors (#FF5F00), typography, and spacing throughout
 
-The modal window should be opened via a button on the homepage
+## Technology Stack
 
-When opening the filter modal, if the user has already selected some data previously, it should be pre-filled in the modal
+- **React 18** + TypeScript — Type-safe component development
+- **Vite** — Lightning-fast build tool with HMR
+- **Tailwind CSS** — Utility-first styling with design system tokens
+- **Zustand** — Lightweight state management for filter persistence
+- **React Query** — Data fetching and caching (pre-configured, ready to integrate with API)
+- **React i18next** — Internationalization framework
+- **Vitest** — Fast unit testing with React support
 
-The user should be able to modify the data and click the `Apply` button. This action should open a confirmation dialog
+## Getting Started
 
-- If the user confirms the changes — the selected data should be saved to the global state (`App`)
-- If the user cancels — keep the previously saved data without applying the new changes
+### Installation
 
-Display the current selected filter data on the homepage in JSON format (no design required, just for debug/visibility)
-
-The project must include a GitHub Action that automatically checks the code
-
-Types:
-
-- `FilterItem` — input data format from API / `filterData.json`
-- `SearchRequestFilter` — output data format to be displayed on the homepage
-
-### What technologies to use
-
-Required:
-
-- Git with `Conventional Commits`
-- Semantic HTML layout
-- React
-- react-query
-- tailwindcss
-- i18n
-- zustand
-
-You may use other technologies already installed in the project, or install additional ones if needed
-
-If you install any new technology, describe why you added it and what it’s used for in some file
-
-### How to submit the task
-
-- Create a **public** copy(not fork) of the repository, preserving the full commit history
-- Complete the task in this private repository
-- Inform HR that the task is complete and ready for review
-
-Also, please let us know upfront whether you would like detailed feedback (what exactly was wrong and a score), or if a simple acceptance or rejection response is sufficient
-
-## How to set up the project
-
-All scripts described below (except for _**dependency installation**_) can be used with pnpm instead of npm. They work the same way
-
-### Installing dependencies
-
-After downloading the project's source code, you need to install the dependencies. To do this, you can use the following command:
-
-```shell
-pnpm i
-# or
+```bash
 pnpm install
 ```
 
-### Run
+### Development
 
-To start the project for development, use the script `dev`:
-
-```shell
-npm run dev
+```bash
+pnpm dev
 ```
 
-This script automatically refreshes the page after you make changes in the code and works quickly with `vite`.
+Starts the dev server at `http://localhost:3000` with hot module replacement.
 
 ### Build
 
-To compile the project, use the script `build`:
-
-```shell
-npm run build
+```bash
+pnpm build
 ```
 
-After executing this script, you will have a folder `dist` in which the project's output files will be located, which can be uploaded to hosting.
+Compiles the project to optimized production bundle in the `dist/` folder.
 
-Also, to see how the compiled version of the program looks, you can use the script `preview`.
+### Preview
 
-```shell
-npm run preview
+```bash
+pnpm preview
 ```
+
+Serves the production build locally for testing.
+
+## See Also
+
+- [Task Requirements](./TASK.md) — Original assignment specifications
+- [Developer Approach](./DEV_APPROACH.md) - how to create this app
+- [Figma Design](https://www.figma.com/file/cnBVURUTntc8peGEfKexoY/WWT-Test-task) — Design mockups and specifications
